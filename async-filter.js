@@ -1,5 +1,4 @@
 const assert = require('assert');
-
 const api = require('./lib/api');
 const { counting } = require('./lib/counting');
 const { pipeAsync } = require('./lib/helper');
@@ -14,13 +13,8 @@ const getUsers = async ({ ids }) => {
 
 const getAdultUsers = (users) => users.filter(user => user.age > 18);
 
-console.log('Waiting for async users...');
+console.log('Waiting for users...');
 (async () => {
-    // console.time('getUsers');
-    // const users = await getUsers({ ids: [ '1', '2', '3', '4' ]});
-    // const adultUsers = getAdultUsers(users);
-    // console.timeEnd('getUsers');
-
     console.time('getUsers');
     const adultUsers = await pipeAsync(
         getUsers,
@@ -28,10 +22,8 @@ console.log('Waiting for async users...');
     )({ ids: [ '1', '2', '3', '4' ]});
     console.timeEnd('getUsers');
 
-    // assert
     assert(adultUsers.length === 3);
     adultUsers.forEach(user => assert(user.age > 18));
 })();
 
 counting(10);
-

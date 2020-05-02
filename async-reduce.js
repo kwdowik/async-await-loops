@@ -1,5 +1,4 @@
 const assert = require('assert');
-
 const api = require('./lib/api');
 const { counting } = require('./lib/counting');
 
@@ -12,11 +11,11 @@ const getUsersBalance = async ({ ids }) => {
     return Promise.resolve(sum);
 }
 
-console.log('Waiting for async users...');
+console.log('Waiting for users...');
 (async () => {
-    console.time('getUsers');
+    console.time('getUsersBalance');
     const sum = await getUsersBalance({ ids: [ '1', '2', '3', '4' ]});
-    console.timeEnd('getUsers');
+    console.timeEnd('getUsersBalance');
     
     assert(sum === 400120);
 })();

@@ -8,6 +8,6 @@ const getUsersAge = async ({ ids }) => {
 
 (async () => {
     const sumAge = await getUsersAge({ ids: [ '1', '2', '3', '4', '5', '6' ]});
-    // tests
+    // Tests
     assert(sumAge === 205);
 })();

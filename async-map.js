@@ -1,5 +1,4 @@
 const assert = require('assert');
-
 const api = require('./lib/api');
 const { counting } = require('./lib/counting');
 
@@ -11,7 +10,7 @@ const getUsers = async ({ ids }) => {
     return Promise.all(users);
 }
 
-console.log('Waiting for async users...');
+console.log('Waiting for users...');
 (async () => {
     console.time('getUsers');
     const users = await getUsers({ ids: [ '1', '2', '3', '4' ]});

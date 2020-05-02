@@ -8,6 +8,6 @@ const getTotalBalance = async ({ ids }) => {
 
 (async () => {
     const totalBalance = await getTotalBalance({ ids: [ '1', '2', '3', '4', '5', '6' ]});
-    // tests
+    // Tests
     assert(totalBalance === 1040000);
 })();

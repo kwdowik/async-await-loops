@@ -8,7 +8,7 @@ const getUsers = async ({ ids }) => {
 
 (async () => {
     const users = await getUsers({ ids: [ '1', '2', '3', '4', '5', '6' ]});
-    // tests
+    // Tests
     assert(users.length === 2);
     assert(users[0].name=== 'Andrew');
     assert(users[1].name === 'Joe');
